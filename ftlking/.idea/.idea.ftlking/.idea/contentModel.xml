@@ -6,14 +6,25 @@
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Character.cs" t="Include" />
-        <e p="Item.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">
               <e p="Unity3DRider.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Script" t="Include">
+          <e p="BodyInventory.cs" t="Include" />
+          <e p="Character.cs" t="Include" />
+          <e p="Health.cs" t="Include" />
+          <e p="HealthHuman.cs" t="Include" />
+          <e p="Inventory.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
+          <e p="Level.cs" t="Include" />
+          <e p="Seats.cs" t="Include" />
+          <e p="Ship.cs" t="Include" />
+          <e p="Statistic.cs" t="Include" />
+          <e p="Test.cs" t="Include" />
         </e>
       </e>
       <e p="ftlking.sln" t="IncludeFlat" />

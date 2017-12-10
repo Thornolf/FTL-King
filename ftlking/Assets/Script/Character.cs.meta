@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c36b4535e28fa8f4b9de919fa95ba4e7
+timeCreated: 1512923972
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - characterEntity: {instanceID: 0}
+  - brick: {instanceID: 0}
+  - go: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
