@@ -9,8 +9,8 @@ namespace Script
         public String Name { get; set; }
         public String Info { get; set; }
         public Statistic Stats { get; set; }
-        public Inventory Invent { get; set; } //TODO Attention l'inventory dans l'item dans l'inventory etc.
-        public Double Weight { get; set; } //TODO Trouver un moyen de fix le probleme de recursivité de l'inventory dans l'item (Héritage ?)
+        public Inventory Invent { get; set; }
+        public Double Weight { get; set; }
         
         
         //TODO Add a prop sprite for the futur

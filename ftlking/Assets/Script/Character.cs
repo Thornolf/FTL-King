@@ -15,6 +15,7 @@ namespace Script
 		public Statistic Stats { get; set; }
 		public String Descrition { get; set; }
 		public GameObject characterEntity { get; set; }
+		public Double Weight { get; set; }
 	
 		public Character()
 		{
@@ -24,6 +25,7 @@ namespace Script
 			BagInventory = new Inventory();
 			Body = new BodyInventory();
 			Stats = new Statistic();
+			Weight = 70f;
 		}
 
 		public Character(String newName)
