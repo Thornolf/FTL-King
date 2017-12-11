@@ -28,8 +28,10 @@ namespace Script
 			Weight = 70f;
 		}
 
-		public Character(String newName)
+		public Character(String newName, Double newWeight)
 		{
+			Name = newName;
+			Weight = newWeight;
 		}
 	}
 }

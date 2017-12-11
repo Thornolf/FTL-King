@@ -16,15 +16,22 @@
         <e p="Script" t="Include">
           <e p="BodyInventory.cs" t="Include" />
           <e p="Character.cs" t="Include" />
+          <e p="EventType.cs" t="Include" />
           <e p="Health.cs" t="Include" />
           <e p="HealthHuman.cs" t="Include" />
           <e p="Inventory.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="Level.cs" t="Include" />
+          <e p="MenuScript" t="Include">
+            <e p="LoadNewScene.cs" t="Include" />
+          </e>
+          <e p="Seat.cs" t="Include" />
           <e p="Seats.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
+          <e p="Situation.cs" t="Include" />
           <e p="Statistic.cs" t="Include" />
           <e p="Test.cs" t="Include" />
+          <e p="Waypoint.cs" t="Include" />
         </e>
       </e>
       <e p="ftlking.sln" t="IncludeFlat" />
