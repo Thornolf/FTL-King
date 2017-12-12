@@ -33,5 +33,10 @@ namespace Script
 			Name = newName;
 			Weight = newWeight;
 		}
+
+		public void GenerateARandomCharacter()
+		{
+			
+		}
 	}
 }

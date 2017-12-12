@@ -11,7 +11,8 @@ namespace Script
         public int Widsom { get; set; }
         public int Charisma { get; set; }
         public int Protection { get; set; }
-
+        
+        //Stats protection must be equals to 0 if you are creating a character, it must remain only for item utilisation
         public Statistic()
         {
             Strengh = 0;
