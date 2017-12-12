@@ -14,7 +14,7 @@ namespace Script
 		public BodyInventory Body { get; set; }
 		public Statistic Stats { get; set; }
 		public String Descrition { get; set; }
-		public GameObject characterEntity { get; set; }
+		public GameObject CharacterEntity { get; set; }
 		public Double Weight { get; set; }
 	
 		public Character()
@@ -33,10 +33,17 @@ namespace Script
 			Name = newName;
 			Weight = newWeight;
 		}
-
-		public void GenerateARandomCharacter()
+		
+		public Character(String newName, Level newLvl, HealthHuman newHp, Inventory newBagInventory, Statistic newStats, String newDescription, GameObject newCharacterEntity, Double newWeight)
 		{
-			
+			Name = newName;
+			Lvl = newLvl;
+			Hp = newHp;
+			BagInventory = newBagInventory;
+			Stats = newStats;
+			Descrition = newDescription;
+			CharacterEntity = newCharacterEntity;
+			Weight = newWeight;
 		}
 	}
 }

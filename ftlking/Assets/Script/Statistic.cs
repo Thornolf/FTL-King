@@ -35,6 +35,29 @@ namespace Script
             Charisma = newCharisma;
             Protection = newProtection;
         }
+
+        public void GenerateRandomStatsForCharacter() //TODO Setup an algorithm which randomize every stats, you need to dispatch 34 points in 6 stats DO NOT TOUCH PROTECTION
+        {
+            Strengh = 0;
+            Dexterity = 0;
+            Constitution = 0;
+            Intelligence = 0;
+            Widsom = 0;
+            Charisma = 0;
+            Protection = 0;
+        } 
+        
+        public void GenerateRandomStatsForItems() //TODO Setup an algorithm which randomize every stats, you need to dispatch 10 points in 7 stats 
+        {
+            Strengh = 0;
+            Dexterity = 0;
+            Constitution = 0;
+            Intelligence = 0;
+            Widsom = 0;
+            Charisma = 0;
+            Protection = 0;
+        } 
+        
         public void DebugStats()
         {
             Debug.Log("--- All the stats ---");
