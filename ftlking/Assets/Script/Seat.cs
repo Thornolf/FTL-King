@@ -7,7 +7,7 @@
 
         public Seat()
         {
-            Character c = new Character("Empty", 0f);
+            Character c = new Character("Empty", new WeightStat(0f));
             SeatedCharacter = c;
         }
 

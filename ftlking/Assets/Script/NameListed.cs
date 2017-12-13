@@ -5,11 +5,19 @@ namespace Script
 {
     public class NameListed
     {
-        List<String> list = new List<string>();
+        public List<String> NameList { get; set; }
 
         public NameListed()
         {
-            list.Add("");
+            NameList = new List<string> ();
+            NameList.Add ("Pascal");
+            NameList.Add ("Eugène");
+            NameList.Add ("Heimdall");
+            NameList.Add ("Balgr");
+            NameList.Add ("Fenrir");
+            NameList.Add ("Jormundgar");
+            NameList.Add ("Einerihar");
+            NameList.Add ("Midgard");
         }
     }
 }

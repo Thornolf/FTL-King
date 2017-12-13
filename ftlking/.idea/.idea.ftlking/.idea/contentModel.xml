@@ -29,13 +29,21 @@
           <e p="MenuScript" t="Include">
             <e p="LoadNewScene.cs" t="Include" />
           </e>
+          <e p="Money.cs" t="Include" />
           <e p="NameListed.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Seat.cs" t="Include" />
           <e p="Seats.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
           <e p="Statistic.cs" t="Include" />
           <e p="Test.cs" t="Include" />
           <e p="Waypoint.cs" t="Include" />
+          <e p="WeightStat.cs" t="Include" />
+        </e>
+        <e p="UnityPackages" t="Include">
+          <e p="JsonNetSample" t="Include">
+            <e p="JsonNetSample.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="ftlking.sln" t="IncludeFlat" />

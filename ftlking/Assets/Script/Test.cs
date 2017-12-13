@@ -2,45 +2,46 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using Script;
+
+
 
 public class Test : MonoBehaviour {
 
 	void Start ()
-	{
-		int a = 34;
-		
-		List<int> l = new List<int>();
-		
-		for (int i = 0; i < 6; i++)
-		{
-			if (i == 6 - 1)
-				l.Add(a);
-			else
-			{
-				int j = UnityEngine.Random.Range(0, a);
-				a -= j;
-				l.Add(j);
-			}
-		}
-		
-		foreach (var v in l)
-		{
-			Debug.Log(v);
-
-		}
+	{	
 		/*
-		Character c = new Character();
-		Item i = new Item("Sword", "It is really sharp.");
-		Item a = new Item("Axe", "SWING IT.");
-		c.Body.BodyInvent["Belt"].Invent.AddAnItem(1, i);
-		c.Body.BodyInvent["Belt"].Invent.AddAnItem(2, a);
-		foreach (var it in c.Body.BodyInvent["Belt"].Invent.Inv)
-		{
-			Debug.Log(it.Value.Name);
-		}*/
-	}
+		Character c = new Character("Robert", new Level().GenerateRandomLevel(), new HealthHuman(), new BodyInventory(), new Statistic().GenerateRandomStatsForCharacter(), "Description", this.gameObject, new WeightStat().GenerateRandomWeight(70f, 100f), new Money().GenerateRandomMoney(0, 1000));
+		c.Dump();
+		*/
+		LoadGameData();
+		
+	} 
+	
+	private string gameDataFileName = "allitems.json";
+	
+	private void LoadGameData()
+	{
+		// Path.Combine combines strings into a file path
+		// Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
+		string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
 
+		Debug.Log(filePath);
+		if(File.Exists(filePath))
+		{
+			// Read the json from the file into a string
+			string dataAsJson = File.ReadAllText(filePath);
+			// Pass the json to JsonUtility, and tell it to create a GameData object from it
+			Item loadedData = JsonConvert.DeserializeObject<Item>(dataAsJson);
+		}
+		else
+		{
+			Debug.LogError("Cannot load game data!");
+		}
+	}
+	
 	void Update()
 	{
 	}
