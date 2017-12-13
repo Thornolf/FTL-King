@@ -38,13 +38,48 @@ namespace Script
 
         public void GenerateRandomStatsForCharacter() //TODO Setup an algorithm which randomize every stats, you need to dispatch 34 points in 6 stats DO NOT TOUCH PROTECTION
         {
-            Strengh = 0;
-            Dexterity = 0;
-            Constitution = 0;
-            Intelligence = 0;
-            Widsom = 0;
-            Charisma = 0;
+            Strengh = 2;
+            Dexterity = 2;
+            Constitution = 2;
+            Intelligence = 2;
+            Widsom = 2;
+            Charisma = 2;
             Protection = 0;
+			while (Strengh + Dexterity + Constitution + Intelligence + Widsom + Charisma < 34) {
+				int charac = Random.Range (0, 6);
+				switch (charac) {
+				case 0:
+					{
+						Strengh++;
+						break;
+					}
+				case 1:
+					{
+						Dexterity++;
+						break;
+					}
+				case 2:
+					{
+						Constitution++;
+						break;
+					}
+				case 3:
+					{
+						Intelligence++;
+						break;
+					}
+				case 4:
+					{
+						Widsom++;
+						break;
+					}
+				case 5:
+					{
+						Charisma++;
+						break;
+					}
+				}
+			}
         } 
         
         public void GenerateRandomStatsForItems() //TODO Setup an algorithm which randomize every stats, you need to dispatch 10 points in 7 stats 
