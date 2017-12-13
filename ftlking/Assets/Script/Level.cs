@@ -1,4 +1,6 @@
-﻿namespace Script
+﻿using UnityEngine;
+
+namespace Script
 {
     public class Level
     {
@@ -25,11 +27,21 @@
             StepLevel = newStepLevel;
         }
 
-        public void GenerateRandomLevel()
+        public Level GenerateRandomLevel()
         {
             AllXp = UnityEngine.Random.Range(0, 1000000000);
             CurrentLevel = AllXp / StepLevel;
             ExperienceBar = AllXp % StepLevel;
+            return (this);
+        }
+
+        public void Dump()
+        {
+            Debug.Log("--- --- --- LEVEL DEBUG MODE --- --- ---");
+            Debug.Log("All xp since the beginning : " + AllXp);
+            Debug.Log("All xp on the actual level : " + ExperienceBar);
+            Debug.Log("Current level : " + CurrentLevel);
+            Debug.Log("--- --- --- --- --- --- --- --- --- --- ---");
         }
     }
 }

@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Script
 {
     public class BodyInventory
     {
         public Dictionary<String, Item> BodyInvent = new Dictionary<String, Item>();
-        public Double Weight { get; set; } //TODO Foreach in the inventory on all weight of each item
+        public WeightStat Weight { get; set; } //TODO Foreach in the inventory on all weight of each item
 
         public BodyInventory()
         {
             Item i = new Item();
+            Weight = new WeightStat();
             
             BodyInvent.Add("Head", i);
             BodyInvent.Add("Torso", i);
@@ -28,7 +30,21 @@ namespace Script
             BodyInvent.Add("Back1", i);
             BodyInvent.Add("Back2", i);
         }
+        
+        public void Dump() 
+        {
+            Debug.Log("--- --- DEBUG BODY INVENTORY MODE --- ---");
+            foreach (var bodyInvent in BodyInvent)
+            {
+                Debug.Log("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+                Debug.Log(" Emplacement [" + bodyInvent.Key + "] : ");
+                //bodyInvent.Value.Dump();
+                Debug.Log("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+            }
+            Debug.Log("--- --- --- --- --- --- --- --- --- --- ---");
+        }
     }
+    
     
     /*
      * Body Part list:

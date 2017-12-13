@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\totof\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_ftlking.-69843435.00" t="ExcludeRecursive" />
-    <e p="C:\Users\totof\Documents\FTL-King\ftlking" t="IncludeRecursive">
+    <e p="C:\Users\Tsonerof\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_ftlking.-231251395.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Tsonerof\Desktop\Git\FTL-King\ftlking" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -29,13 +29,21 @@
           <e p="MenuScript" t="Include">
             <e p="LoadNewScene.cs" t="Include" />
           </e>
+          <e p="Money.cs" t="Include" />
           <e p="NameListed.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Seat.cs" t="Include" />
           <e p="Seats.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
           <e p="Statistic.cs" t="Include" />
           <e p="Test.cs" t="Include" />
           <e p="Waypoint.cs" t="Include" />
+          <e p="WeightStat.cs" t="Include" />
+        </e>
+        <e p="UnityPackages" t="Include">
+          <e p="JsonNetSample" t="Include">
+            <e p="JsonNetSample.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="ftlking.sln" t="IncludeFlat" />
