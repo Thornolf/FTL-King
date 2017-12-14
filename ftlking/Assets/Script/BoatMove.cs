@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Enpoint : MonoBehaviour {
+public class BoatMove: MonoBehaviour {
 
 	public float speed;
 	private bool pressed = false;
@@ -18,7 +18,7 @@ public class Enpoint : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && pressed == false)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
