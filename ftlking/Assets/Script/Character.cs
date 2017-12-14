@@ -10,6 +10,7 @@ namespace Script
 		public String Name { get; set; }
 		public Level Lvl { get; set; }
 		public HealthHuman Hp { get; set; }
+		public Inventory Inv { get; set; }
 		public BodyInventory Body { get; set; }
 		public Statistic Stats { get; set; }
 		public String Descrition { get; set; }
@@ -23,6 +24,7 @@ namespace Script
 			Lvl = new Level();
 			Hp = new HealthHuman();
 			Body = new BodyInventory();
+			Inv = new Inventory();
 			Stats = new Statistic();
 			Weight = new WeightStat();
 			CoinsMoney = new Money();
@@ -34,12 +36,13 @@ namespace Script
 			Weight = newWeight;
 		}
 		
-		public Character(String newName, Level newLvl, HealthHuman newHp, BodyInventory newBodyInventory, Statistic newStats, String newDescription, GameObject newCharacterEntity, WeightStat newWeight, Money newCoinsMoney)
+		public Character(String newName, Level newLvl, HealthHuman newHp, BodyInventory newBodyInventory, Inventory newInv, Statistic newStats, String newDescription, GameObject newCharacterEntity, WeightStat newWeight, Money newCoinsMoney)
 		{
 			Name = newName;
 			Lvl = newLvl;
 			Hp = newHp;
 			Body = newBodyInventory;
+			Inv = newInv;
 			Stats = newStats;
 			Descrition = newDescription;
 			CharacterEntity = newCharacterEntity;
@@ -55,6 +58,7 @@ namespace Script
 			Body.Dump();
 			Stats.Dump();
 			Debug.Log("Description : " + Descrition);
+			Inv.Dump();
 			Weight.Dump();
 			CoinsMoney.Dump();
 		}

@@ -7,6 +7,48 @@ using Newtonsoft.Json;
 using Script;
 
 
+/*
+public enum eTypeItem
+{
+	Weapon = 0,
+	Equipement = 1,
+	Container = 2,
+	Other = 3
+}
+
+public class Statistic
+{
+	public int Strengh;
+	public int Dexterity;
+	public int Constitution;
+	public int Intelligence;
+	public int Widsom;
+	public int Charisma;
+	public int Protection;
+}
+
+public class WeightStat
+{
+	public Double Weight { get; set; }
+}
+
+public class Inventory
+{
+	public Dictionary<int, Item> Inv
+	public WeightStat Weight { get; set; }
+}
+
+public class Item
+{
+	public String Name = "Sword";
+	public String Info = "It is really sharp";
+	public Statistic Stats = new Statistic();
+	public eTypeItem TypeItem = eTypeItem.Weapon;
+	public int Price = 0;
+	public Inventory Invent = new Inventory();
+	public WeightStat Weight = new WeightStat();
+}
+*/
 
 public class Test : MonoBehaviour {
 
@@ -16,33 +58,9 @@ public class Test : MonoBehaviour {
 		Character c = new Character("Robert", new Level().GenerateRandomLevel(), new HealthHuman(), new BodyInventory(), new Statistic().GenerateRandomStatsForCharacter(), "Description", this.gameObject, new WeightStat().GenerateRandomWeight(70f, 100f), new Money().GenerateRandomMoney(0, 1000));
 		c.Dump();
 		*/
-		LoadGameData();
-		
-	} 
-	
-	private string gameDataFileName = "allitems.json";
-	
-	private void LoadGameData()
-	{
-		// Path.Combine combines strings into a file path
-		// Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
-		string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
+		JSONDataCollector j = new JSONDataCollector();
+		ItemTables t = j.GetItemTables("TableItems.json");
+		t.Dump();
 
-		Debug.Log(filePath);
-		if(File.Exists(filePath))
-		{
-			// Read the json from the file into a string
-			string dataAsJson = File.ReadAllText(filePath);
-			// Pass the json to JsonUtility, and tell it to create a GameData object from it
-			Item loadedData = JsonConvert.DeserializeObject<Item>(dataAsJson);
-		}
-		else
-		{
-			Debug.LogError("Cannot load game data!");
-		}
-	}
-	
-	void Update()
-	{
-	}
+	} 
 }
