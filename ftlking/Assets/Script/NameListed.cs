@@ -10,14 +10,6 @@ namespace Script
         public NameListed()
         {
             NameList = new List<string> ();
-            NameList.Add ("Pascal");
-            NameList.Add ("Eugène");
-            NameList.Add ("Heimdall");
-            NameList.Add ("Balgr");
-            NameList.Add ("Fenrir");
-            NameList.Add ("Jormundgar");
-            NameList.Add ("Einerihar");
-            NameList.Add ("Midgard");
         }
     }
 }

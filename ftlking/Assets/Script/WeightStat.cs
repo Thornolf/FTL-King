@@ -14,12 +14,12 @@ namespace Script
 
         public WeightStat(Double newWeight)
         {
-            Weight = newWeight;
+            Weight = Math.Round(newWeight, 2);
         }
 
         public WeightStat GenerateRandomWeight(float min, float max)
         {
-            Weight = (Double)UnityEngine.Random.Range(min, max);
+            Weight = Math.Round((Double)UnityEngine.Random.Range(min, max), 2);
             return (this);
         }
 

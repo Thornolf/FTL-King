@@ -16,8 +16,8 @@ namespace Script
 
         public EventManager(int newId, eEventType newEventType, eEventPlaces newEventPlaces, int newNumberCharacter)
         {
-            CharacterList = new List<Character>();
             Id = newId;
+            CharacterList = new List<Character>();
             e_EventType = newEventType;
             e_EventPlaces = newEventPlaces;
             NumberCharacter = newNumberCharacter;
@@ -38,7 +38,7 @@ namespace Script
             NumberCharacter = UnityEngine.Random.Range(0, 10);
             for (int i = 0; i < NumberCharacter; i++)
             {
-                Character c = new Character();
+                Character c = new Character("Robert", new Level().GenerateRandomLevel(), new HealthHuman(), new BodyInventory(), new Inventory(), new Statistic().GenerateRandomStatsForCharacter(), "Description", "PrefabName", new GameObject().gameObject, new WeightStat().GenerateRandomWeight(70f, 100f), new Money().GenerateRandomMoney(0, 1000));
                 CharacterList.Add(c);
             }
         }

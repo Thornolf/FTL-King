@@ -14,6 +14,7 @@ namespace Script
 		public BodyInventory Body { get; set; }
 		public Statistic Stats { get; set; }
 		public String Descrition { get; set; }
+		public String PrefabName { get; set; }
 		public GameObject CharacterEntity { get; set; }
 		public WeightStat Weight { get; set; }
 		public Money CoinsMoney { get; set; }
@@ -36,7 +37,8 @@ namespace Script
 			Weight = newWeight;
 		}
 		
-		public Character(String newName, Level newLvl, HealthHuman newHp, BodyInventory newBodyInventory, Inventory newInv, Statistic newStats, String newDescription, GameObject newCharacterEntity, WeightStat newWeight, Money newCoinsMoney)
+		
+		public Character(String newName, Level newLvl, HealthHuman newHp, BodyInventory newBodyInventory, Inventory newInv, Statistic newStats, String newDescription, String newPrefabName, WeightStat newWeight, Money newCoinsMoney)
 		{
 			Name = newName;
 			Lvl = newLvl;
@@ -45,6 +47,21 @@ namespace Script
 			Inv = newInv;
 			Stats = newStats;
 			Descrition = newDescription;
+			PrefabName = newPrefabName;
+			Weight = newWeight;
+			CoinsMoney = newCoinsMoney;
+		}
+		
+		public Character(String newName, Level newLvl, HealthHuman newHp, BodyInventory newBodyInventory, Inventory newInv, Statistic newStats, String newDescription, String newPrefabName, GameObject newCharacterEntity, WeightStat newWeight, Money newCoinsMoney)
+		{
+			Name = newName;
+			Lvl = newLvl;
+			Hp = newHp;
+			Body = newBodyInventory;
+			Inv = newInv;
+			Stats = newStats;
+			Descrition = newDescription;
+			PrefabName = newPrefabName;
 			CharacterEntity = newCharacterEntity;
 			Weight = newWeight;
 			CoinsMoney = newCoinsMoney;
@@ -55,7 +72,7 @@ namespace Script
 			Debug.Log("Name : " + Name);
 			Lvl.Dump();
 			Hp.Dump();
-			Body.Dump();
+			//Body.Dump();
 			Stats.Dump();
 			Debug.Log("Description : " + Descrition);
 			Inv.Dump();

@@ -13,16 +13,18 @@ namespace Script
 
         public Inventory()
         {
-            Item p = new Item();
             Inv = new List<Item>();
             Weight = new WeightStat();
-            Inv.Add(p);
-        }
-        public void AddAnItem(Item newItem)
-        {
-            Inv.Add(newItem);
         }
 
+        public Inventory AddingRandomItems(int numberItems, ItemTables t)
+        {
+            for (int i = 0; i < numberItems; i++)
+            {
+                Inv.Add(t.Equipement[UnityEngine.Random.Range(0, t.Equipement.Count)]);   
+            }
+            return (this);
+        }
         public void Dump()
         {
             if (Inv.Count > 0)

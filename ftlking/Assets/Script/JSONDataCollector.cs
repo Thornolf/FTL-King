@@ -32,6 +32,28 @@ namespace Script
             }
             return (loadedData);
         }
+        
+        public NameListed  GetNorseName(String gameDataFileName)
+        {
+            // Path.Combine combines strings into a file path
+            // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
+            string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
+            NameListed loadedData;
+            Debug.Log(filePath);
+            if (File.Exists(filePath))
+            {
+                // Read the json from the file into a string
+                string dataAsJson = File.ReadAllText(filePath);
+                // Pass the json to JsonUtility, and tell it to create a GameData object from it
+                loadedData = JsonConvert.DeserializeObject<NameListed>(dataAsJson);
+            }
+            else
+            {
+                loadedData = new NameListed();
+                Debug.LogError("Cannot load game data!");
+            }
+            return (loadedData);
+        }
 
         private void SerializeData()
         {

@@ -16,6 +16,7 @@
         <e p="Script" t="Include">
           <e p="BodyInventory.cs" t="Include" />
           <e p="Character.cs" t="Include" />
+          <e p="CharacterGenerator.cs" t="Include" />
           <e p="eEventPlaces.cs" t="Include" />
           <e p="eEventType.cs" t="Include" />
           <e p="eTypeCharacter.cs" t="Include" />
