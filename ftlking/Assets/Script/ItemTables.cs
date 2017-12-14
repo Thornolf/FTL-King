@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Script
@@ -8,7 +9,13 @@ namespace Script
         public List<Item> Weapon { get; set; }   
         public List<Item> Equipement { get; set; }
         public List<Item> Container { get; set; } 
-        public List<Item> Other { get; set; } 
+        public List<Item> Other { get; set; }
+
+        public List<Item> AllItems 
+        {
+            get { return Weapon.Concat(Equipement).Concat(Container).Concat(Other).ToList(); }
+            set { }
+        }
 
         public ItemTables()
         {
