@@ -19,12 +19,15 @@
           <e p="eEventPlaces.cs" t="Include" />
           <e p="eEventType.cs" t="Include" />
           <e p="eTypeCharacter.cs" t="Include" />
+          <e p="eTypeItem.cs" t="Include" />
           <e p="EventInitializer.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="Health.cs" t="Include" />
           <e p="HealthHuman.cs" t="Include" />
           <e p="Inventory.cs" t="Include" />
           <e p="Item.cs" t="Include" />
+          <e p="ItemTables.cs" t="Include" />
+          <e p="JSONDataCollector.cs" t="Include" />
           <e p="Level.cs" t="Include" />
           <e p="MenuScript" t="Include">
             <e p="LoadNewScene.cs" t="Include" />

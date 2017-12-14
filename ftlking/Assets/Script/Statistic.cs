@@ -13,27 +13,29 @@ namespace Script
 		public int Widsom;
 		public int Charisma;
 		public int Protection;
+		public int Space;
 
 		public int AllStats
 		{
-			get { return Strengh + Dexterity + Constitution + Intelligence + Widsom + Charisma + Protection; }
+			get { return Strengh + Dexterity + Constitution + Intelligence + Widsom + Charisma + Protection + Space; }
 			set { }
 		}
 
 		//Stats protection must be equals to 0 if you are creating a character, it must remain only for item utilisation
         public Statistic()
         {
-            Strengh = 999;
+            Strengh = 0;
             Dexterity = 0;
             Constitution = 0;
             Intelligence = 0;
             Widsom = 0;
             Charisma = 0;
             Protection = 0;
+	        Space = 0;
         }
 
         public Statistic(int newStrengh, int newDexterity, int newConstitution, int newIntelligence, int newWidsom,
-            int newCharisma, int newProtection)
+            int newCharisma, int newProtection, int newSpace)
         {
             Strengh = newCharisma;
             Dexterity = newDexterity;
@@ -42,6 +44,7 @@ namespace Script
             Widsom = newWidsom;
             Charisma = newCharisma;
             Protection = newProtection;
+	        Space = newSpace;
         }
 
         public Statistic GenerateRandomStatsForCharacter() //TODO Setup an algorithm which randomize every stats, you need to dispatch 34 points in 6 stats DO NOT TOUCH PROTECTION
@@ -53,6 +56,7 @@ namespace Script
             Widsom = 2;
             Charisma = 2;
             Protection = 0;
+	        Space = 0;
 			while (AllStats < 34) {
 				int charac = UnityEngine.Random.Range (0, 6);
 				switch (charac) {
@@ -100,6 +104,7 @@ namespace Script
             Widsom = 0;
             Charisma = 0;
             Protection = 0;
+	        Space = 0;
         } 
         
         public void Dump()
@@ -111,7 +116,8 @@ namespace Script
             Debug.Log("Intelligence : " + Intelligence);
             Debug.Log("Widsom : " + Widsom);
             Debug.Log("Charisma : " + Charisma);
-            Debug.Log("Protection : " + Protection);
+	        Debug.Log("Protection : " + Protection);
+	        Debug.Log("Space : " + Space);
             Debug.Log("--- --- --- --- --- ---");
         }
     }

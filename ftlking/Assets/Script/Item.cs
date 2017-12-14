@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace Script
 {
-    //[System.Serializable]
+    [System.Serializable]
     public class Item
     {
         public String Name;
         public String Info;
         public Statistic Stats;
+        public eTypeItem TypeItem { get; set; }
         public int Price { get; set; }
-        public Inventory Invent { get; set; }
         public WeightStat Weight { get; set; }
         
         
@@ -23,26 +23,29 @@ namespace Script
         {
             Name = "Empty";
             Info = "There is nothing.";
+            Price = 0;
+            TypeItem = eTypeItem.Other;
             Stats = new Statistic();
-            Invent = new Inventory();
             Weight = new WeightStat();
         }
         
-        public Item(String newName, String newInfo, WeightStat newWeight)
+        public Item(String newName, String newInfo, WeightStat newWeight, int newPrice, eTypeItem newTypeItem)
         {
             Name = newName;
             Info = newInfo;
+            Price = newPrice;
+            TypeItem = newTypeItem;
             Stats = new Statistic();
-            Invent = new Inventory();
             Weight = newWeight;
         }
         
-        public Item(String newName, String newInfo, Statistic newStats, WeightStat newWeight)
+        public Item(String newName, String newInfo, Statistic newStats, WeightStat newWeight, int newPrice, eTypeItem newTypeItem)
         {
             Name = newName;
             Info = newInfo;
             Stats = newStats;
-            Invent = new Inventory();
+            Price = newPrice;
+            TypeItem = newTypeItem;
             Weight = newWeight;
         }
         public void Dump()
@@ -50,8 +53,9 @@ namespace Script
             Debug.Log("--- --- --- DEBUG ITEM MODE --- --- ---");
             Debug.Log("Name : " + Name);
             Debug.Log("Info : " + Info);
+            Debug.Log("Price : " + Price);
+            Debug.Log("Type Item : " + TypeItem);
             Stats.Dump();
-            Invent.Dump();
             Weight.Dump();
             Debug.Log("--- --- --- --- --- --- --- --- --- --- ");
             

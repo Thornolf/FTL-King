@@ -2,22 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace Script
 {
     public class Inventory
     {
-        public Dictionary<int, Item> Inv { get; set; }
+        public List<Item> Inv { get; set; }
         public WeightStat Weight { get; set; } //TODO Get le weight en récursif sur chaque item
 
         public Inventory()
         {
-            Inv = new Dictionary<int, Item>();
+            Item p = new Item();
+            Inv = new List<Item>();
             Weight = new WeightStat();
+            Inv.Add(p);
         }
-        public void AddAnItem(int newId, Item newItem)
+        public void AddAnItem(Item newItem)
         {
-            Inv.Add(newId, newItem);
+            Inv.Add(newItem);
         }
 
         public void Dump()
@@ -26,8 +29,7 @@ namespace Script
             {
                 foreach (var vItem in Inv)
                 {
-                    Debug.Log("Id : " + vItem.Key);
-                    //vItem.Value.Dump();
+                    vItem.Dump();
                 }
             }
             else
