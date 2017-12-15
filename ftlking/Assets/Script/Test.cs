@@ -20,6 +20,8 @@ public class Test : MonoBehaviour {
 		}
 
 		Player p = new Player (c, l);
-		p.Dump ();
+		FightModule f = new FightModule();
+		f.ActualPlayer = p;
+		f.Fight ();
 	} 
 }
