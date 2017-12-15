@@ -16,6 +16,7 @@
         <e p="Script" t="Include">
           <e p="BodyInventory.cs" t="Include" />
           <e p="Character.cs" t="Include" />
+          <e p="CharacterArchetype.cs" t="Include" />
           <e p="CharacterGenerator.cs" t="Include" />
           <e p="eEventPlaces.cs" t="Include" />
           <e p="eEventType.cs" t="Include" />
@@ -23,6 +24,7 @@
           <e p="eTypeItem.cs" t="Include" />
           <e p="EventInitializer.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
+          <e p="EventModule.cs" t="Include" />
           <e p="Health.cs" t="Include" />
           <e p="HealthHuman.cs" t="Include" />
           <e p="Inventory.cs" t="Include" />
@@ -41,6 +43,7 @@
           <e p="Ship.cs" t="Include" />
           <e p="Statistic.cs" t="Include" />
           <e p="Test.cs" t="Include" />
+          <e p="TradeModule.cs" t="Include" />
           <e p="Waypoint.cs" t="Include" />
           <e p="WeightStat.cs" t="Include" />
         </e>

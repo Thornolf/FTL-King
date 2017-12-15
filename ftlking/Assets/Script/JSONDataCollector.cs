@@ -10,7 +10,14 @@ namespace Script
 {
     public class JSONDataCollector
     {
+        public String ItemTablesJsonName { get; set; }
+        public String NorseNameJsonName { get; set; }
 
+        public JSONDataCollector()
+        {
+            ItemTablesJsonName = "TableItems.json";
+            NorseNameJsonName = "norseName.json";
+        }
         public ItemTables GetItemTables(String gameDataFileName)
         {
             // Path.Combine combines strings into a file path
