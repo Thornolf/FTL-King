@@ -14,6 +14,12 @@ public class Player : MonoBehaviour
         
     }
 
+	public Player(Character newMainCharacter, List<Character> newCompany)
+	{
+		MainCharacter = newMainCharacter;
+		Company = newCompany;
+	}
+
     public void Dump()
     {
         Debug.Log("--- --- --- PLAYER DEBUG MODE --- --- ---");

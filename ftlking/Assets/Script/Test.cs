@@ -11,18 +11,15 @@ public class Test : MonoBehaviour {
 
 	void Start ()
 	{	
+		Character c = new Character ();
 		CharacterGenerator g = new CharacterGenerator();
-		
 		List<Character> l = new List<Character>();
-
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			l.Add(g.GenerateRandomCharacter());
 		}
 
-		foreach (var vCharacter in l)
-		{
-			vCharacter.Dump();
-		}
+		Player p = new Player (c, l);
+		p.Dump ();
 	} 
 }
