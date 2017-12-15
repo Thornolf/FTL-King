@@ -13,7 +13,7 @@ namespace Script
         public String Info;
         public Statistic Stats;
         public eTypeItem TypeItem { get; set; }
-        public int Price { get; set; }
+        public Money Price { get; set; }
         public WeightStat Weight { get; set; }
         
         
@@ -23,13 +23,13 @@ namespace Script
         {
             Name = "Empty";
             Info = "There is nothing.";
-            Price = 0;
+            Price = new Money(0);
             TypeItem = eTypeItem.Other;
             Stats = new Statistic();
             Weight = new WeightStat();
         }
         
-        public Item(String newName, String newInfo, WeightStat newWeight, int newPrice, eTypeItem newTypeItem)
+        public Item(String newName, String newInfo, WeightStat newWeight, Money newPrice, eTypeItem newTypeItem)
         {
             Name = newName;
             Info = newInfo;
@@ -39,7 +39,7 @@ namespace Script
             Weight = newWeight;
         }
         
-        public Item(String newName, String newInfo, Statistic newStats, WeightStat newWeight, int newPrice, eTypeItem newTypeItem)
+        public Item(String newName, String newInfo, Statistic newStats, WeightStat newWeight, Money newPrice, eTypeItem newTypeItem)
         {
             Name = newName;
             Info = newInfo;
@@ -53,7 +53,7 @@ namespace Script
             Debug.Log("--- --- --- DEBUG ITEM MODE --- --- ---");
             Debug.Log("Name : " + Name);
             Debug.Log("Info : " + Info);
-            Debug.Log("Price : " + Price);
+            Price.Dump();
             Debug.Log("Type Item : " + TypeItem);
             Stats.Dump();
             Weight.Dump();
