@@ -26,7 +26,6 @@ public class BoatMove: MonoBehaviour {
 			{
 				if (hit.collider.tag == "Waypoint") {
 					pressed = true;
-					Debug.Log (hit.collider.name);
 				}
 			}
 		}

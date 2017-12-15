@@ -15,17 +15,19 @@ public class Waypoint : MonoBehaviour
 
 	void Update()
 	{
-		if (transform.position == GameObject.FindGameObjectWithTag ("Player").transform.position && IsVisited == false) {
-			IsVisited = true;
-			//Application.LoadLevel("DevEventSceneVillage"); LOAD YOUR SCENE HERE
-			Debug.Log ("Passing on isle");
-		}
-			
+		if (Input.GetKeyUp(KeyCode.Space) && IsVisited == true)
+			Debug.Log ("Doing event"); //Put your event here
+	}
+		
+	void OnTriggerEnter()
+	{
+		IsVisited = true;
+		Debug.Log ("Entering");
 	}
 
-    private void OnMouseDown()
-    {
-		if (IsVisited == true)
-			Debug.Log ("info");
-    }
+	void OnTriggerExit()
+	{
+		IsVisited = false;
+		Debug.Log ("Leaving");
+	}
 }
