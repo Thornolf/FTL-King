@@ -8,12 +8,12 @@ namespace Script
 {
     public class Inventory
     {
-        public List<Item> Inv { get; set; }
+        public List<Item> Invent { get; set; }
         public WeightStat Weight { get; set; } //TODO Get le weight en récursif sur chaque item
 
         public Inventory()
         {
-            Inv = new List<Item>();
+            Invent = new List<Item>();
             Weight = new WeightStat();
         }
 
@@ -21,15 +21,15 @@ namespace Script
         {
             for (int i = 0; i < numberItems; i++)
             {
-                Inv.Add(t.Equipement[UnityEngine.Random.Range(0, t.Equipement.Count)]);   
+                Invent.Add(t.Equipement[UnityEngine.Random.Range(0, t.Equipement.Count)]);   
             }
             return (this);
         }
         public void Dump()
         {
-            if (Inv.Count > 0)
+            if (Invent.Count > 0)
             {
-                foreach (var vItem in Inv)
+                foreach (var vItem in Invent)
                 {
                     vItem.Dump();
                 }

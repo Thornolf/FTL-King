@@ -10,7 +10,7 @@ using Script;
 public class Test : MonoBehaviour {
 
 	void Start ()
-	{	
+	{
 		CharacterGenerator g = new CharacterGenerator();
 		
 		List<Character> l = new List<Character>();

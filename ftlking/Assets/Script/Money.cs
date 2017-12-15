@@ -12,6 +12,11 @@ namespace Script
             Coins = 0;
         }
 
+        public Money(int newCoins)
+        {
+            Coins = 0;
+        }
+
         public Money GenerateRandomMoney(int min, int max)
         {
             Coins = UnityEngine.Random.Range(min, max);
