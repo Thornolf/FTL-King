@@ -6,10 +6,11 @@
         {
         }
 
-        public void TradeAnItem(Character Buyer, Item ItemToSell)
+        public Character TradeAnItem(Character Buyer, Item ItemToSell)
         {
             Buyer.CoinsMoney.Coins -= ItemToSell.Price.Coins;
             Buyer.Inv.Invent.Add(ItemToSell);
+            return (Buyer);
         }
     }
 }
