@@ -13,7 +13,21 @@ public class Waypoint : MonoBehaviour
     {
     }
 
-    private void OnMouseDown()
-    {
-    }
+	void Update()
+	{
+		if (Input.GetKeyUp(KeyCode.Space) && IsVisited == true)
+			Debug.Log ("Doing event"); //Put your event here
+	}
+		
+	void OnTriggerEnter()
+	{
+		IsVisited = true;
+		Debug.Log ("Entering");
+	}
+
+	void OnTriggerExit()
+	{
+		IsVisited = false;
+		Debug.Log ("Leaving");
+	}
 }
