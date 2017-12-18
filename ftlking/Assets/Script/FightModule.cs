@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Script
@@ -45,9 +46,25 @@ namespace Script
 			for (int i = 0; i < size; i++)
 			{
 				Ennemies.Add(Generator.GenerateRandomCharacter());
-			}		
+			}
 		}
 
+		public void Positive()
+		{
+			Fight();
+			StopFighting();
+		}
+
+		public void Negative()
+		{
+			StopFighting();
+		}
+
+		private void StopFighting()
+		{
+			SceneManager.LoadScene("MainLevel");
+		}
+		
 		public void DumpEnnemies()
 		{
 			Debug.Log ("!!!!!!!!! FIGHTING INFO !!!!!!!!!!");

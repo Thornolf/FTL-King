@@ -11,17 +11,10 @@ using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
+	private GameManager g = GameManager.Instance;
 	void Start ()
 	{
-		ItemTables t = new ItemTables();
-		
-		JSONDataCollector j = new JSONDataCollector();
-
-		t = j.FillTable<ItemTables>("TableItems.json");
-		foreach (var vItem in t.AllItems)
-		{
-			vItem.Dump();
-		}
+		g.ActualPlayer.MainCharacter.Inv.Dump();
 	}
 	
 	public void OnMouseDown()

@@ -13,21 +13,28 @@ namespace Script
 
 		void Start()
 		{
-			fish.Dump ();
+			FishGenerator f = new FishGenerator();
+			//fish = new Item();
+			//fish = f.FishCreate();
+			
+			//fish.Dump ();
+			text.text = "Hi ! Do you want to try to catch some FISH ?!";
 		}
 
 		public void Positive()
 		{
 			gameManager.ActualPlayer.MainCharacter.Inv.Invent.Add (fish);
 			text.text = "OK you're fishing a " + fish.Name;
+			StopFishing();
 		}
 
 		public void Negative()
 		{
 			Debug.Log ("Nope");
+			StopFishing();
 		}
 
-		public void stop()
+		public void StopFishing()
 		{
 			SceneManager.LoadScene ("MainLevel");
 		}

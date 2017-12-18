@@ -34,6 +34,8 @@
           <e p="EventManager.cs" t="Include" />
           <e p="EventModule.cs" t="Include" />
           <e p="FightModule.cs" t="Include" />
+          <e p="FishGenerator.cs" t="Include" />
+          <e p="FishingModule.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="Health.cs" t="Include" />
           <e p="HealthHuman.cs" t="Include" />

@@ -1,6 +1,8 @@
 ﻿using System;
 using Script;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class Waypoint : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Waypoint : MonoBehaviour
 	public Boolean IsEventDone { get; set; }
 	private Color startcolor;
 	public float Cooldown;
+	private GameManager _gameManager = GameManager.Instance;
 
 
     void Start()
@@ -27,6 +30,7 @@ public class Waypoint : MonoBehaviour
 			IsEventDone = true;
 			Cooldown = 5f;
 			Debug.Log ("Doing event"); //Put your event here
+			SelectEvent();
 		}
 		if (IsEventDone == true) {
 			Cooldown -= Time.deltaTime;
@@ -36,7 +40,38 @@ public class Waypoint : MonoBehaviour
 			}
 		}
 	}
+
+	private void SelectEvent()
+	{
+		//Debug.Log("Event : " + _gameManager.ListEvent[UnityEngine.Random.Range(0, _gameManager.ListEvent.Count)].ToString());
 		
+		Array values = Enum.GetValues(typeof(eEventType));
+		Random random = new Random();
+		eEventType randomEvent = (eEventType)values.GetValue(random.Next(values.Length));
+
+		switch (randomEvent)
+		{
+			case eEventType.Fight:
+				SceneManager.LoadScene("EventFighting");
+				break;
+			case eEventType.Fishing:
+				SceneManager.LoadScene("EventFishing");
+				break;
+			case eEventType.Trade:
+				SceneManager.LoadScene("EventTrading");
+				break;
+			case eEventType.Hunting:
+				Debug.Log("I am doing HUNTING");
+				break;
+			case eEventType.Nothing:
+				Debug.Log("I am doing NOTHING");
+				break;
+			default:
+				Debug.Log("It is impossible to have this output.");
+				break;
+		}
+
+	}
 	void OnTriggerEnter()
 	{
 		IsVisited = true;

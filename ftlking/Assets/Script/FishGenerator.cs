@@ -14,7 +14,7 @@ namespace Script
 		{
 			species.InsertRange (species.Count, new List<string> {"CodFish", "Breaded fish", "Salmon"});
 			descriptions.InsertRange (descriptions.Count, new List<string> {"Miam", "Good Taste", "Great"});
-			weight = new WeightStat ().GenerateRandomWeight(0.5f, 20.0f);
+			weight = new WeightStat(1f);
 		}
 
 		public Item	FishCreate()

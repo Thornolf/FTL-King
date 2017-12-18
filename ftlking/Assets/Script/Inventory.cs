@@ -38,6 +38,7 @@ namespace Script
             }
             return (this);
         }
+        
         public void Dump()
         {
             if (Invent.Count > 0)
