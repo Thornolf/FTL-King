@@ -13,10 +13,12 @@ public class Test : MonoBehaviour
 {
 	void Start ()
 	{
+		FishGenerator gen = new FishGenerator();
+		gen.Dump ();
 	}
 	
 	public void OnMouseDown()
 	{
-		SceneManager.LoadScene("EventTrade");
+//		SceneManager.LoadScene("EventTrade");
 	}
 }
