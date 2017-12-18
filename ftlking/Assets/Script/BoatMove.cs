@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class BoatMove: MonoBehaviour {
@@ -26,18 +27,22 @@ public class BoatMove: MonoBehaviour {
 			{
 				if (hit.collider.tag == "Waypoint") {
 					pressed = true;
+					GetComponent<NavMeshAgent>().SetDestination(hit.point);
 				}
 			}
 		}
 		if (pressed == true && hit.collider.tag == "Waypoint") {
-			float swim = speed * Time.deltaTime;
-			transform.position = Vector3.MoveTowards (transform.position, hit.collider.transform.position, swim);
+
 			if (transform.position == hit.collider.transform.position) {
 				pressed = false;
 				//Application.LoadLevel ("Debug");
-				// Load level here
 			}
 		}
 	}
-		
+
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.tag == "Waypoint")
+			pressed = false;
+	}
 }
