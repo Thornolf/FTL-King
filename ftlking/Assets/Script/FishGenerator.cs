@@ -12,14 +12,15 @@ namespace Script
 
 		public FishGenerator()
 		{
-			species.Add("Codfish");
-			descriptions.Add ("It looks good.");
+			species.InsertRange (species.Count, new List<string> {"CodFish", "Breaded fish", "Salmon"});
+			descriptions.InsertRange (descriptions.Count, new List<string> {"Miam", "Good Taste", "Great"});
 			weight = new WeightStat ().GenerateRandomWeight(0.5f, 20.0f);
 		}
 
 		public Item	FishCreate()
 		{
-			Item fishOut = new Item("Codfish",	"Good taste.", weight, new Money(20), eTypeItem.Other);
+			Item fishOut = new Item(species[0], descriptions[1],
+				weight, new Money(20), eTypeItem.Other);
 			return (fishOut);
 		}
 
@@ -30,7 +31,7 @@ namespace Script
 			Debug.Log ("---- Debug Fish ----");
 			Debug.Log ("Name : " + test.Name);
 			Debug.Log ("info : " + test.Info);
-			Debug.Log ("Weight :" + test.Weight);
+			test.Weight.Dump();
 			test.Stats.Dump();
 		}
 	}
