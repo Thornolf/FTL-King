@@ -12,51 +12,25 @@ namespace Script
     {
         public String ItemTablesJsonName { get; set; }
         public String NorseNameJsonName { get; set; }
-
-        public JSONDataCollector()
-        {
+        /*
             ItemTablesJsonName = "TableItems.json";
             NorseNameJsonName = "norseName.json";
-        }
-        public ItemTables GetItemTables(String gameDataFileName)
-        {
-            // Path.Combine combines strings into a file path
-            // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
-            string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
-            ItemTables loadedData;
-            Debug.Log(filePath);
-            if (File.Exists(filePath))
-            {
-                // Read the json from the file into a string
-                string dataAsJson = File.ReadAllText(filePath);
-                // Pass the json to JsonUtility, and tell it to create a GameData object from it
-                loadedData = JsonConvert.DeserializeObject<ItemTables>(dataAsJson);
-            }
-            else
-            {
-                loadedData = new ItemTables();
-                Debug.LogError("Cannot load game data!");
-            }
-            return (loadedData);
-        }
+        */
         
-        public NameListed  GetNorseName(String gameDataFileName)
+        public T FillTable<T>(String gameDataFileName)
         {
-            // Path.Combine combines strings into a file path
-            // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
             string filePath = Path.Combine(Application.persistentDataPath, gameDataFileName);
-            NameListed loadedData;
+            T loadedData;
             Debug.Log(filePath);
             if (File.Exists(filePath))
             {
-                // Read the json from the file into a string
                 string dataAsJson = File.ReadAllText(filePath);
-                // Pass the json to JsonUtility, and tell it to create a GameData object from it
-                loadedData = JsonConvert.DeserializeObject<NameListed>(dataAsJson);
+                loadedData = JsonConvert.DeserializeObject<T>(dataAsJson);
             }
             else
             {
-                loadedData = new NameListed();
+                loadedData = default(T);
+                loadedData = Activator.CreateInstance<T>();
                 Debug.LogError("Cannot load game data!");
             }
             return (loadedData);

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,9 +7,8 @@ using UnityEngine.UI;
 
 namespace Script
 {
-    public class TradeModule : MonoBehaviour
-    {
-        public Player ActualPlayer;
+    public class TradeModule : EventModule
+    {   
         public List<Character> Traders;
         public Text DialogBoxText;
         public Item ItemToSell;
@@ -29,15 +29,15 @@ namespace Script
 
         public void UpdatingDialogBoxText()
         {
-            DialogBoxText.text = "Hi ! Do you want to buy " + ItemToSell.Name + "for " + ItemToSell.Price.Coins;
+            DialogBoxText.text = "Hi ! Do you want to buy " + ItemToSell.Name + " for " + ItemToSell.Price.Coins + "coin";
         }
 
         public void BuyingPositive()
         {
-            if (ActualPlayer.MainCharacter.CoinsMoney.Coins > ItemToSell.Price.Coins)
+            if (gameManager.ActualPlayer.MainCharacter.CoinsMoney.Coins >= ItemToSell.Price.Coins)
             {
                 Debug.Log("Player main Character bought " + ItemToSell.Name + "for an amount of " + ItemToSell.Price.Coins);
-                TradeAnItem(ActualPlayer.MainCharacter, ItemToSell);
+                TradeAnItem(gameManager.ActualPlayer.MainCharacter, ItemToSell);
             }
             else
             {

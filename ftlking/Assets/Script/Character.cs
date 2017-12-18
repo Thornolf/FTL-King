@@ -16,7 +16,7 @@ namespace Script
 		public String Descrition { get; set; }
 		public String PrefabName { get; set; }
 		public GameObject CharacterEntity { get; set; }
-		public WeightStat Weight { get; set; }
+		public WeightStat Weight { get; set; } //TODO get the weight of the body inventory + invtory + character himself
 		public Money CoinsMoney { get; set; }
 	
 		public Character()
@@ -31,6 +31,20 @@ namespace Script
 			CoinsMoney = new Money();
 		}
 
+		public Character(String newName)
+		{
+			Name = newName;
+			Lvl = new Level().GenerateRandomLevel();
+			Hp = new HealthHuman();
+			Body = new BodyInventory();
+			Inv = new Inventory();
+			Stats = new Statistic().GenerateRandomStatsForCharacter();
+			Descrition = "I was an adventurer like you but I took an arrow in the knee !";
+			PrefabName = "PREFABNAME";
+			Weight = new WeightStat().GenerateRandomWeight(70f, 100F);
+			CoinsMoney = new Money().GenerateRandomMoney(100, 5000);
+			
+		}
 		public Character(String newName, WeightStat newWeight)
 		{
 			Name = newName;

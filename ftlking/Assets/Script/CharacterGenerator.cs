@@ -16,12 +16,12 @@ namespace Script
             ListItems = "TableItems.json";
             ListNames = "norseName.json";
             Collector = new JSONDataCollector();
-            Tables= Collector.GetItemTables(ListItems);
+            Tables= Collector.FillTable<ItemTables>(ListItems);
             
             Names = new NameListed();
             JSONDataCollector j = new JSONDataCollector();
 
-            Names = j.GetNorseName(ListNames);
+            Names = j.FillTable<NameListed>(ListNames);
             
         }
 

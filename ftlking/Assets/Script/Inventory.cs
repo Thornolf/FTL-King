@@ -9,7 +9,20 @@ namespace Script
     public class Inventory
     {
         public List<Item> Invent { get; set; }
-        public WeightStat Weight { get; set; } //TODO Get le weight en récursif sur chaque item
+        public WeightStat Weight
+        {
+            get
+            {
+                Double tmp = 0;
+                foreach (var vItem in Invent)
+                {
+                     tmp = vItem.Weight.Weight;
+                }
+                WeightStat w = new WeightStat(tmp);
+                return (w);
+            }
+            set { }
+        }
 
         public Inventory()
         {

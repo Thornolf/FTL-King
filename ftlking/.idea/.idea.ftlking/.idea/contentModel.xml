@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Tsonerof\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_ftlking.-231251395.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Tsonerof\Desktop\Git\FTL-King\ftlking" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Script" t="Include">
+          <e p="Beauty" t="Include">
+            <e p="HighlightMouseOver.cs" t="Include" />
+          </e>
+          <e p="BoatMove.cs" t="Include" />
+          <e p="BodyInventory.cs" t="Include" />
+          <e p="Character.cs" t="Include" />
+          <e p="CharacterArchetype.cs" t="Include" />
+          <e p="CharacterGenerator.cs" t="Include" />
+          <e p="DataManager.cs" t="Include" />
+          <e p="DevTest" t="Include">
+            <e p="LoadSceneOnKeyPressed.cs" t="Include" />
+          </e>
+          <e p="eEventPlaces.cs" t="Include" />
+          <e p="eEventType.cs" t="Include" />
+          <e p="eTypeCharacter.cs" t="Include" />
+          <e p="eTypeItem.cs" t="Include" />
+          <e p="EventInitializer.cs" t="Include" />
+          <e p="EventManager.cs" t="Include" />
+          <e p="EventModule.cs" t="Include" />
+          <e p="FightModule.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="Health.cs" t="Include" />
+          <e p="HealthHuman.cs" t="Include" />
+          <e p="Inventory.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
+          <e p="ItemTables.cs" t="Include" />
+          <e p="JSONDataCollector.cs" t="Include" />
+          <e p="Level.cs" t="Include" />
+          <e p="MenuScript" t="Include">
+            <e p="MenuScript.cs" t="Include" />
+          </e>
+          <e p="Money.cs" t="Include" />
+          <e p="NameListed.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="Seat.cs" t="Include" />
+          <e p="Seats.cs" t="Include" />
+          <e p="Ship.cs" t="Include" />
+          <e p="Statistic.cs" t="Include" />
+          <e p="Test.cs" t="Include" />
+          <e p="TradeModule.cs" t="Include" />
+          <e p="Waypoint.cs" t="Include" />
+          <e p="WeightStat.cs" t="Include" />
+        </e>
+        <e p="UnityPackages" t="Include">
+          <e p="JsonNetSample" t="Include">
+            <e p="JsonNetSample.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="ftlking.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

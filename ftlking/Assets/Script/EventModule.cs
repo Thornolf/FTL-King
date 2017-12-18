@@ -3,14 +3,8 @@ using UnityEngine;
 
 namespace Script
 {
-    public class EventModule
+    public class EventModule : MonoBehaviour
     {
-        public Player ActualPlayer { get; set; }
-        public GameObject DialogBox { get; set; }
-
-        public EventModule()
-        {
-            ActualPlayer = new Player();
-        }
+        protected GameManager gameManager = GameManager.Instance;
     }
 }

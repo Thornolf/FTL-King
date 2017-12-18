@@ -7,20 +7,20 @@ namespace Script
 {
 	public class FightModule : EventModule
 	{
-		private CharacterGenerator generator;
-		private List<Character> ennemies;
+		private CharacterGenerator Generator;
+		private List<Character> Ennemies;
 
 		public FightModule()
 		{
-			generator = new CharacterGenerator ();
-			ennemies = new List<Character> ();
+			Generator = new CharacterGenerator ();
+			Ennemies = new List<Character> ();
 		}
 
 		public void Fight()
 		{
 			GenerateEnemies ();
 			//DumpEnnemies ();
-			if (ActualPlayer.Company.Count < ennemies.Count)
+			if (gameManager.ActualPlayer.Company.Count < Ennemies.Count)
 				Defeat ();
 			else 
 				Victory ();
@@ -28,13 +28,13 @@ namespace Script
 
 		private void Victory()
 		{
-			ActualPlayer.MainCharacter.CoinsMoney.Coins += 100;
+			gameManager.ActualPlayer.MainCharacter.CoinsMoney.Coins += 100;
 			Debug.Log ("Victory");
 		}
 
 		private void Defeat()
 		{
-			ActualPlayer.MainCharacter.CoinsMoney.Coins -= ActualPlayer.MainCharacter.CoinsMoney.Coins * 30 / 100;
+			gameManager.ActualPlayer.MainCharacter.CoinsMoney.Coins -= gameManager.ActualPlayer.MainCharacter.CoinsMoney.Coins * 30 / 100;
 			Debug.Log ("Defeat");
 		}
 
@@ -44,15 +44,15 @@ namespace Script
 
 			for (int i = 0; i < size; i++)
 			{
-				ennemies.Add(generator.GenerateRandomCharacter());
+				Ennemies.Add(Generator.GenerateRandomCharacter());
 			}		
 		}
 
 		public void DumpEnnemies()
 		{
 			Debug.Log ("!!!!!!!!! FIGHTING INFO !!!!!!!!!!");
-			Debug.Log ("Size of the squad -----> " + ennemies.Count);
-			foreach (Character c in ennemies)
+			Debug.Log ("Size of the squad -----> " + Ennemies.Count);
+			foreach (Character c in Ennemies)
 			{
 				c.Dump();
 			}
