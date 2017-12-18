@@ -36,7 +36,7 @@ namespace Script
         {
             if (ActualPlayer.MainCharacter.CoinsMoney.Coins > ItemToSell.Price.Coins)
             {
-                Debug.Log("Player main Character have enough money");
+                Debug.Log("Player main Character bought " + ItemToSell.Name + "for an amount of " + ItemToSell.Price.Coins);
                 TradeAnItem(ActualPlayer.MainCharacter, ItemToSell);
             }
             else
