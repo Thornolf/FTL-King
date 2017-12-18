@@ -26,6 +26,6 @@ public class Test : MonoBehaviour
 	
 	public void OnMouseDown()
 	{
-		SceneManager.LoadScene("EventTrade");
+//		SceneManager.LoadScene("EventTrade");
 	}
 }
