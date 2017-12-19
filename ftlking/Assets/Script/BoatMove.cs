@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class BoatMove: MonoBehaviour {
 
+	public Camera cam;
 	public float speed;
+	public List<Waypoint> ListWaypoint = new List<Waypoint>();
 	private bool pressed = false;
 	private GameObject destinationObject;
 	private RaycastHit hit;
@@ -18,6 +20,12 @@ public class BoatMove: MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		int newId = 1;
+		foreach (var vWayypoint in ListWaypoint)
+		{
+			vWayypoint.Id = newId++;
+		}
+		
 		Vector3 v = new Vector3(gameManager.ActualPlayer.PlayerhShip.Position.x, gameManager.ActualPlayer.PlayerhShip.Position.y, gameManager.ActualPlayer.PlayerhShip.Position.z);
 		this.transform.position = v; //TODO Vérifié que la pos de l'instance est bien la réel position du ship
 	}
@@ -45,6 +53,11 @@ public class BoatMove: MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
+			foreach (var vWaypoint in ListWaypoint)
+			{
+				Debug.Log("Id : " + vWaypoint.Id);
+			}
+			
 			SaveGame s = new SaveGame();
 			s.Saving<Character>(gameManager.ActualPlayer.MainCharacter, "MainCharacter");
 			s.Saving<Ship>(gameManager.ActualPlayer.PlayerhShip, "PlayerShip");
@@ -57,6 +70,11 @@ public class BoatMove: MonoBehaviour {
 		if (collider.tag == "Waypoint")
 		{
 			pressed = false;
+			// CAM
+			Vector3 velocity = Vector3.zero;
+			Vector3 newPos = new Vector3 (transform.position.x, cam.transform.position.y, transform.position.z);
+			cam.transform.position = Vector3.SmoothDamp (newPos, transform.position, ref velocity, 0.3f);
+			Debug.Log("I'm in the collider tag == Waypoin and my position is : " + collider.gameObject.transform.position);
 		}
 		gameManager.ActualPlayer.PlayerhShip.Position.setAllAxe(collider.transform.position.x, collider.transform.position.y, collider.transform.position.z);
 	}

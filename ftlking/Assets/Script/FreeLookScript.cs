@@ -10,7 +10,7 @@ public class FreeLookScript : MonoBehaviour {
 
 	public Vector2 yLimit;
 
-	public float scrollSpeed = 20.0f;
+	public float scrollSpeed = 120.0f;
 
 	void Update () {
 
@@ -35,10 +35,13 @@ public class FreeLookScript : MonoBehaviour {
 		}
 
 		pos.y -= scroll * scrollSpeed * 100.0f * Time.deltaTime;
-
+		
+		/* A quoi ça sert ? */
+		/*
 		pos.x = Mathf.Clamp (pos.x, -panLimit.x, panLimit.x);
 		pos.z = Mathf.Clamp (pos.z, -panLimit.y, panLimit.y);
 		pos.y = Mathf.Clamp (pos.y, yLimit.x, yLimit.y);
+		*/
 
 		transform.position = pos;
 	}

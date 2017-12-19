@@ -14,6 +14,7 @@ public class Test : MonoBehaviour
 	//private GameManager g = GameManager.Instance;
 	void Start ()
 	{
+		/*
 		GameManager g = new GameManager();
 		string output = JsonConvert.SerializeObject(g.ActualPlayer.MainCharacter);
 		Debug.Log(output);
@@ -27,5 +28,7 @@ public class Test : MonoBehaviour
 		s.Saving<Character>(g.ActualPlayer.MainCharacter, "MainCharacter");
 		s.Saving<Ship>(g.ActualPlayer.PlayerhShip, "PlayerShip");
 		s.Saving<List<Character>>(g.ActualPlayer.Company, "Company");
+		*/
+		PlayerPrefs.DeleteAll();
 	}
 }

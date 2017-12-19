@@ -6,8 +6,9 @@ using Random = System.Random;
 
 public class Waypoint : MonoBehaviour
 {
-	public Camera cam;
+	//public Camera cam;
 
+	public int Id = 0;
     public Vector3 Position { get; set; }
     public EventManager Event { get; set; }
     public String Description { get; set; }
@@ -31,7 +32,6 @@ public class Waypoint : MonoBehaviour
 			GetComponent<Renderer>().material.color = Color.green;
 			IsEventDone = true;
 			Cooldown = 5f;
-			Debug.Log ("Doing event"); //Put your event here
 			SelectEvent();
 		}
 		if (IsEventDone == true) {
@@ -76,10 +76,10 @@ public class Waypoint : MonoBehaviour
 	}
 	void OnTriggerEnter()
 	{
-		Vector3 velocity = Vector3.zero;
-		Vector3 newPos = new Vector3 (transform.position.x, cam.transform.position.y, transform.position.z);
+		//Vector3 velocity = Vector3.zero;
+	//	Vector3 newPos = new Vector3 (transform.position.x, cam.transform.position.y, transform.position.z);
 
-		cam.transform.position = Vector3.SmoothDamp (newPos, transform.position, ref velocity, 0.3f);
+	//	cam.transform.position = Vector3.SmoothDamp (newPos, transform.position, ref velocity, 0.3f);
 		IsVisited = true;
 		Debug.Log ("Entering");
 	}
