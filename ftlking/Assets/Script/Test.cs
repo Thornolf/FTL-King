@@ -11,14 +11,21 @@ using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
-	private GameManager g = GameManager.Instance;
+	//private GameManager g = GameManager.Instance;
 	void Start ()
 	{
-		g.ActualPlayer.MainCharacter.Inv.Dump();
-	}
-	
-	public void OnMouseDown()
-	{
-//		SceneManager.LoadScene("EventTrade");
+		GameManager g = new GameManager();
+		string output = JsonConvert.SerializeObject(g.ActualPlayer.MainCharacter);
+		Debug.Log(output);
+		output = JsonConvert.SerializeObject(g.ActualPlayer.PlayerhShip);
+		Debug.Log(output);
+		output = JsonConvert.SerializeObject(g.ActualPlayer.Company);
+		Debug.Log(output);
+		
+		
+		SaveGame s = new SaveGame();
+		s.Saving<Character>(g.ActualPlayer.MainCharacter, "MainCharacter");
+		s.Saving<Ship>(g.ActualPlayer.PlayerhShip, "PlayerShip");
+		s.Saving<List<Character>>(g.ActualPlayer.Company, "Company");
 	}
 }

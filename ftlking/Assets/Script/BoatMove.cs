@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Script;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
 
 public class BoatMove: MonoBehaviour {
@@ -16,7 +18,8 @@ public class BoatMove: MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		this.transform.position = gameManager.ActualPlayer.PlayerhShip.Position; //TODO Vérifié que la pos de l'instance est bien la réel position du ship
+		Vector3 v = new Vector3(gameManager.ActualPlayer.PlayerhShip.Position.x, gameManager.ActualPlayer.PlayerhShip.Position.y, gameManager.ActualPlayer.PlayerhShip.Position.z);
+		this.transform.position = v; //TODO Vérifié que la pos de l'instance est bien la réel position du ship
 	}
 	
 	// Update is called once per frame
@@ -41,6 +44,13 @@ public class BoatMove: MonoBehaviour {
 				//Application.LoadLevel ("Debug");
 			}
 		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SaveGame s = new SaveGame();
+			s.Saving<Character>(gameManager.ActualPlayer.MainCharacter, "MainCharacter");
+			s.Saving<Ship>(gameManager.ActualPlayer.PlayerhShip, "PlayerShip");
+			s.Saving<List<Character>>(gameManager.ActualPlayer.Company, "Company");
+		}
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -49,6 +59,7 @@ public class BoatMove: MonoBehaviour {
 		{
 			pressed = false;
 		}
-		gameManager.ActualPlayer.PlayerhShip.Position = collider.transform.position;
+		gameManager.ActualPlayer.PlayerhShip.Position.setAllAxe(collider.transform.position.x, collider.transform.position.y, collider.transform.position.z);
 	}
+	
 }

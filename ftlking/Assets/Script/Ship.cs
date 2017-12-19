@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Script
@@ -10,8 +11,8 @@ namespace Script
         public Health Hp { get; set; }
         public Inventory ShipInv { get; set; }
         public Seats SeatsShip { get; set; }
-        public WeightStat Weight { get; set; } //TODO Add with the weight of the shipInv + All characters
-        public Vector3 Position { get; set; }
+        public WeightStat Weight { get; set; } //TODO Add getter with the weight of the shipInv + All characters
+        public MyVector3 Position { get; set; }
 
         public Ship()
         {
@@ -20,7 +21,7 @@ namespace Script
             ShipInv = new Inventory();
             SeatsShip = new Seats();
             Weight = new WeightStat(100f);
-            Position = new Vector3(0f, 0f, 0f);
+            Position = new MyVector3(0f, 0f, 0f);
         }
     }
 }

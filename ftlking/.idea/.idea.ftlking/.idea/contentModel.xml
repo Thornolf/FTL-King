@@ -48,8 +48,10 @@
             <e p="MenuScript.cs" t="Include" />
           </e>
           <e p="Money.cs" t="Include" />
+          <e p="MyVector3.cs" t="Include" />
           <e p="NameListed.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="SaveGame.cs" t="Include" />
           <e p="Seat.cs" t="Include" />
           <e p="Seats.cs" t="Include" />
           <e p="Ship.cs" t="Include" />

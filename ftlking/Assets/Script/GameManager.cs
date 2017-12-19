@@ -13,6 +13,10 @@ namespace Script
 			set;
 		}
 
+		public GameManager()
+		{
+			ActualPlayer = new Player();
+		}
 		
 		void Awake () {
 			DontDestroyOnLoad (transform.gameObject);
@@ -24,11 +28,6 @@ namespace Script
 			ActualPlayer = gameObject.AddComponent<Player>();
 			ActualPlayer.MainCharacter = new Character("Thornolf Bjarnulf");
 			SceneManager.LoadScene("Menu");
-		}
-	
-		// Update is called once per frame
-		void Update () {
-		
 		}
 	}
 }
