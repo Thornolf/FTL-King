@@ -13,8 +13,6 @@ namespace Script
 
 		public FightModule()
 		{
-			Generator = new CharacterGenerator ();
-			Ennemies = new List<Character> ();
 		}
 
 		public void Fight()
@@ -25,6 +23,10 @@ namespace Script
 				Defeat ();
 			else 
 				Victory ();
+		}
+		void Start() {
+			Generator = new CharacterGenerator ();
+			Ennemies = new List<Character> ();
 		}
 
 		private void Victory()
