@@ -6,6 +6,8 @@ using Random = System.Random;
 
 public class Waypoint : MonoBehaviour
 {
+	public Camera cam;
+
     public Vector3 Position { get; set; }
     public EventManager Event { get; set; }
     public String Description { get; set; }
@@ -74,6 +76,10 @@ public class Waypoint : MonoBehaviour
 	}
 	void OnTriggerEnter()
 	{
+		Vector3 velocity = Vector3.zero;
+		Vector3 newPos = new Vector3 (transform.position.x, cam.transform.position.y, transform.position.z);
+
+		cam.transform.position = Vector3.SmoothDamp (newPos, transform.position, ref velocity, 0.3f);
 		IsVisited = true;
 		Debug.Log ("Entering");
 	}
