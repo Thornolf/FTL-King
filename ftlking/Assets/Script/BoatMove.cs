@@ -35,7 +35,6 @@ public class BoatMove: MonoBehaviour {
 
 			if (transform.position == hit.collider.transform.position) {
 				pressed = false;
-				//Application.LoadLevel ("Debug");
 			}
 		}
 	}
