@@ -47,7 +47,7 @@ namespace Script
 	        Space = newSpace;
         }
 
-        public Statistic GenerateRandomStatsForCharacter() //TODO Setup an algorithm which randomize every stats, you need to dispatch 34 points in 6 stats DO NOT TOUCH PROTECTION
+        public Statistic GenerateRandomStatsForCharacter()
         {
             Strengh = 2;
             Dexterity = 2;

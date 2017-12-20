@@ -8,7 +8,7 @@ using Script;
 
 namespace Script
 {
-    public class JSONDataCollector //TODO Amélioré le DRY de la classe
+    public class JSONDataCollector
     {
         public String ItemTablesJsonName { get; set; }
         public String NorseNameJsonName { get; set; }

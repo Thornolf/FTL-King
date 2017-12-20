@@ -62,7 +62,6 @@ namespace Script
 
         public void CloseTheDeal()
         {
-            //TODO Set up the preservation of the data
             SceneManager.LoadScene("MainLevel");
         }
     }
