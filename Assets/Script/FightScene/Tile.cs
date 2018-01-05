@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour {
 	public Vector2 GridPosition = Vector2.zero;
 
 	private Color startcolor;
+	private bool GoMove = true;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +22,10 @@ public class Tile : MonoBehaviour {
 		foreach (FightEventPlayer p in MapGenerator.instance.players) {
 			if (Mathf.Approximately (transform.position.x, p.transform.position.x) && Mathf.Approximately (transform.position.z, p.transform.position.z)) {
 				GetComponent<Renderer> ().material.color = Color.red;
+				GoMove = false;
 			} else {
 				GetComponent<Renderer>().material.color = Color.green;
+				GoMove = true;
 			}
 		}
 	}
@@ -32,10 +35,8 @@ public class Tile : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		foreach (FightEventPlayer p in MapGenerator.instance.players) {
-			if (!(Mathf.Approximately (transform.position.x, p.transform.position.x)) || !(Mathf.Approximately (transform.position.z, p.transform.position.z))) {
-				MapGenerator.instance.moveCurrentPlayer (this);
-			}
+		if (GoMove) {
+			MapGenerator.instance.moveCurrentPlayer (this);
 		}
 	}
 }
