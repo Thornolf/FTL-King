@@ -8,11 +8,14 @@ public class MapGenerator : MonoBehaviour {
 
 	public GameObject TilePrefab;
 	public GameObject CharactPrefab;
+	public GameObject EnnemiPrefab;
+
 
 	public int SizeMap = 20;
 
-	List<List<Tile>> map = new List<List<Tile>>();
+	public List<List<Tile>> map = new List<List<Tile>>();
 	public List<FightEventPlayer> players = new List<FightEventPlayer>();
+	public List<FightEventPlayer> ennemies = new List<FightEventPlayer>();
 
 	void Awake() {
 		instance = this;
@@ -40,6 +43,7 @@ public class MapGenerator : MonoBehaviour {
 				Tile tile = ((GameObject)Instantiate(TilePrefab, new Vector3(i - Mathf.Floor(SizeMap / 2), 0, -j + Mathf.Floor(SizeMap / 2)), Quaternion.Euler(new Vector3()))).GetComponent<Tile>();
 				row.Add(tile);
 			}
+			map.Add (row);
 		}
 	}
 
@@ -54,8 +58,8 @@ public class MapGenerator : MonoBehaviour {
 	void generateEnemies() {
 		FightEventPlayer charac;
 
-		charac = ((GameObject)Instantiate(CharactPrefab, new Vector3(4 - Mathf.Floor(SizeMap / 2), 0.6f, -4 + Mathf.Floor(SizeMap / 2)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
-		players.Add (charac);
+		charac = ((GameObject)Instantiate(EnnemiPrefab, new Vector3(4 - Mathf.Floor(SizeMap / 2), 0.6f, -4 + Mathf.Floor(SizeMap / 2)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
+		ennemies.Add (charac);
 	}
 
 	public void moveCurrentPlayer(Tile destTile) {

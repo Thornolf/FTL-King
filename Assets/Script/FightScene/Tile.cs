@@ -19,7 +19,8 @@ public class Tile : MonoBehaviour {
 
 	void OnMouseEnter() {
 		startcolor = GetComponent<Renderer> ().material.color;
-		foreach (FightEventPlayer p in MapGenerator.instance.players) {
+		Debug.Log ("Ennemies nb : " + MapGenerator.instance.ennemies.Count);
+		foreach (FightEventPlayer p in MapGenerator.instance.ennemies) {
 			if (Mathf.Approximately (transform.position.x, p.transform.position.x) && Mathf.Approximately (transform.position.z, p.transform.position.z)) {
 				GetComponent<Renderer> ().material.color = Color.red;
 				GoMove = false;
