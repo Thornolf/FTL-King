@@ -34,7 +34,6 @@ public class FightEventPlayer : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		
 	}
 
 	public void colorTile()
