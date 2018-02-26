@@ -14,6 +14,6 @@ public class Turn : MonoBehaviour {
 	void Update () {
 		if (turnID == 3)
 			turnID = 1;
-		Debug.Log ("Turn : " + turnID);
+		//Debug.Log ("Turn : " + turnID);
 	}
 }

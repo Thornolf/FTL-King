@@ -16,6 +16,10 @@ public class MapGenerator : MonoBehaviour {
 	public List<List<Tile>> map = new List<List<Tile>>();
 	public List<FightEventPlayer> players = new List<FightEventPlayer>();
 	public List<FightEventPlayer> ennemies = new List<FightEventPlayer>();
+	public FightEventPlayer selectedPlayer = new FightEventPlayer();
+
+	public bool selected = false;
+	private Tile selectedTile = new Tile();
 
 	void Awake() {
 		instance = this;
@@ -26,13 +30,22 @@ public class MapGenerator : MonoBehaviour {
 		generateMap ();
 		generatePlayers ();
 		generateEnemies ();
+		selectedPlayer = null;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		players [0].moveUpdate ();
+		if (selectedPlayer != null && selected == false) {
+			selectedPlayer.colorMovementTile ();
+			selected = true;
+		} else if (selectedPlayer == null && selected == true) {
+			resetColor();
+			selected = false;
+		}
+		if (selectedPlayer != null && selectedTile != null && selectedTile.InRange == true)
+			selectedPlayer.moveUpdate (selectedTile);
 	}
-
+		
 	void generateMap()
 	{
 		map = new List<List<Tile>>();
@@ -51,7 +64,7 @@ public class MapGenerator : MonoBehaviour {
 	{
 		FightEventPlayer charac;
 
-		charac = ((GameObject)Instantiate(CharactPrefab, new Vector3(Mathf.Floor(SizeMap / 2), 0.6f, Mathf.Floor(SizeMap / 2)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
+		charac = ((GameObject)Instantiate(CharactPrefab, new Vector3(Mathf.Floor(SizeMap / 4), 0.6f, Mathf.Floor(SizeMap / 4)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
 		players.Add (charac);
 	}
 
@@ -63,6 +76,18 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	public void moveCurrentPlayer(Tile destTile) {
-		players[0].moveDestination = destTile.transform.position + 1.5f * Vector3.up;
+		selectedTile = destTile;
+		//selectedPlayer.moveDestination = destTile.transform.position + 1.5f * Vector3.up;
+	}
+		
+	public void resetColor()
+	{
+		var map = MapGenerator.instance.map;
+		foreach (List<Tile> tilesX in map) {
+			foreach (Tile tile in tilesX) {
+				tile.GetComponent<Renderer> ().material.color = Color.white;
+				tile.InRange = false;
+			}
+		}
 	}
 }
