@@ -91,7 +91,8 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	public void moveCurrentPlayer(Tile destTile) {
-		selectedTile = destTile;
+		if (curAction == Action.Movement || curAction == Action.Attack)
+			selectedTile = destTile;
 		//selectedPlayer.moveDestination = destTile.transform.position + 1.5f * Vector3.up;
 	}
 		
