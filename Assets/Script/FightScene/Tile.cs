@@ -47,8 +47,11 @@ public class Tile : MonoBehaviour {
 		}
 		if (selectedPlayer != null && map.selectedPlayer == null) {
 			map.selectedPlayer = selectedPlayer;
-		} else if (map.selectedPlayer != null && selectedPlayer != null)
+			map.selectedPlayer.changeColorOnSelect ();
+		} else if (map.selectedPlayer != null && selectedPlayer != null) {
+			map.selectedPlayer.changeColorOnDeselect ();
 			map.selectedPlayer = null;
+		}
 		else if (GoMove == true && map.selectedPlayer != null) {
 			map.moveCurrentPlayer (this);
 		}

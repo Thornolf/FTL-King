@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TurnTrigger : MonoBehaviour {
 
-	// Use this for initialization
+	public MapGenerator mapInstance = MapGenerator.instance;
+
 	void Start () {
-		
+		mapInstance = MapGenerator.instance;
 	}
 	
 	// Update is called once per frame
@@ -14,6 +15,8 @@ public class TurnTrigger : MonoBehaviour {
 	}
 
 	public void EndTurn() {
+		foreach (FightEventPlayer p in mapInstance.players)
+			p.resetTurn ();
 		Turn.turnID++;
 	}
 }

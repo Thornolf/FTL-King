@@ -19,12 +19,21 @@ public class MapGenerator : MonoBehaviour {
 	public FightEventPlayer selectedPlayer = new FightEventPlayer();
 
 	public bool selected = false;
-	private Tile selectedTile = new Tile();
+	public Tile selectedTile = new Tile();
+
+	private enum Action
+	{
+		Idle = 0,
+		Attack,
+		Movement
+	};
+
+	Action curAction = Action.Idle;
 
 	void Awake() {
 		instance = this;
 	}
-
+		
 	// Use this for initialization
 	void Start () {
 		generateMap ();
@@ -36,14 +45,20 @@ public class MapGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (selectedPlayer != null && selected == false) {
-			selectedPlayer.colorMovementTile ();
 			selected = true;
 		} else if (selectedPlayer == null && selected == true) {
 			resetColor();
 			selected = false;
+			curAction = Action.Idle;
 		}
-		if (selectedPlayer != null && selectedTile != null && selectedTile.InRange == true)
+		if (curAction == Action.Movement && selectedPlayer != null && selectedPlayer.movementDone == false)
+			selectedPlayer.colorMovementTile ();
+		if (curAction == Action.Attack && selectedPlayer != null && selectedPlayer.attackDone == false)
+			selectedPlayer.colorAttackTile ();
+		if (selectedPlayer != null && selectedTile != null && selectedTile.InRange == true && curAction == Action.Movement)
 			selectedPlayer.moveUpdate (selectedTile);
+		if (selectedPlayer != null && selectedTile != null && selectedTile.InRange == true && curAction == Action.Attack)			
+			selectedPlayer.attackTarget (selectedTile);
 	}
 		
 	void generateMap()
@@ -88,6 +103,22 @@ public class MapGenerator : MonoBehaviour {
 				tile.GetComponent<Renderer> ().material.color = Color.white;
 				tile.InRange = false;
 			}
+		}
+	}
+
+	public void IsAttacking()
+	{
+		if (selected) {
+			curAction = Action.Attack;
+			resetColor ();
+		}
+	}
+
+	public void IsMoving()
+	{
+		if (selected) {
+			curAction = Action.Movement;
+			resetColor ();
 		}
 	}
 }
