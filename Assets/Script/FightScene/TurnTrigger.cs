@@ -17,6 +17,7 @@ public class TurnTrigger : MonoBehaviour {
 	public void EndTurn() {
 		mapInstance.selected = false;
 		mapInstance.selectedPlayer = null;
+		mapInstance.resetColor ();
 		foreach (FightEventPlayer p in mapInstance.players) {
 			p.resetTurn ();
 			p.changeColorOnDeselect ();

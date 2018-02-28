@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour {
 		startcolor = GetComponent<Renderer> ().material.color;
 		Debug.Log ("Ennemies nb : " + map.ennemies.Count);
 		foreach (FightEventPlayer p in map.ennemies) {
-			if (Mathf.Approximately (transform.position.x, p.transform.position.x) && Mathf.Approximately (transform.position.z, p.transform.position.z)) {
+			if (Mathf.Approximately (transform.position.x, p.transform.position.x) && Mathf.Approximately (transform.position.z, p.transform.position.z) && map.curAction != MapGenerator.Action.Attack) {
 				GetComponent<Renderer> ().material.color = Color.red;
 				GoMove = false;
 			} else {

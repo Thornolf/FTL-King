@@ -12,6 +12,8 @@ public class FightEventPlayer : MonoBehaviour {
 	public bool attackDone = false;
 	public MapGenerator mapInstance;
 
+	public int health = 20; //TODO CHANGE WITH REAL VALUE
+	public int damage = 20; //TODO CHANGE WITH REAL VALUE
 
 	void Awake() {
 		moveDestination = transform.position;
@@ -51,7 +53,11 @@ public class FightEventPlayer : MonoBehaviour {
 		mapInstance.selectedTile = null;
 		attackDone = true;
 		changeColorOnDeselect ();
-		Debug.Log ("Blood and plunder");
+		foreach (FightEventPlayer e in mapInstance.ennemies) {
+			if (Mathf.Approximately (e.transform.position.x, tileTar.transform.position.x) && Mathf.Approximately (e.transform.position.z, tileTar.transform.position.z)) {
+				e.takeDmage (damage, mapInstance.ennemies);
+			}
+		}
 	}
 
 	public void colorMovementTile()
@@ -114,7 +120,7 @@ public class FightEventPlayer : MonoBehaviour {
 		depth--;
 		if (currentX >= 0 && currentY >= 0) {
 			if (currentX < map.Count && currentY < map.Count) {
-				if (isThereSomething (map, currentX, currentY) == true)
+				if (isThereSomething (map, currentX, currentY) == true && mapInstance.curAction == MapGenerator.Action.Movement)
 					map [currentX] [currentY].GetComponent<Renderer> ().material.color = Color.red;
 				else {
 					map [currentX] [currentY].GetComponent<Renderer> ().material.color = color;
@@ -150,9 +156,19 @@ public class FightEventPlayer : MonoBehaviour {
 			}
 		}
 	}
+
+	public void takeDmage(int value, List<FightEventPlayer> eventList)
+	{
+		health -= value;
+		if (health <= 0) {
+			eventList.Remove(this);
+			Destroy (gameObject);
+		}
+	}
 		
 	public void resetTurn()
 	{
+		mapInstance.curAction = MapGenerator.Action.Idle;
 		attackDone = false;
 		movementDone = false;
 	}

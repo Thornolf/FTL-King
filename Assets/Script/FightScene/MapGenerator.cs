@@ -8,8 +8,10 @@ public class MapGenerator : MonoBehaviour {
 
 	public GameObject TilePrefab;
 	public GameObject CharactPrefab;
+	public GameObject CharacterRanged;
 	public GameObject EnnemiPrefab;
 
+	public List<GameObject> EnvironnementPrefab;
 
 	public int SizeMap = 20;
 
@@ -21,14 +23,14 @@ public class MapGenerator : MonoBehaviour {
 	public bool selected = false;
 	public Tile selectedTile = new Tile();
 
-	private enum Action
+	public enum Action
 	{
 		Idle = 0,
 		Attack,
 		Movement
 	};
 
-	Action curAction = Action.Idle;
+	public Action curAction = Action.Idle;
 
 	void Awake() {
 		instance = this;
@@ -39,11 +41,15 @@ public class MapGenerator : MonoBehaviour {
 		generateMap ();
 		generatePlayers ();
 		generateEnemies ();
+		generateObstacle ();
 		selectedPlayer = null;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		/*if (players.Count <= 0 || ennemies.Count <= 0)
+		 * TODO
+		*/	
 		if (selectedPlayer != null && selected == false) {
 			selected = true;
 		} else if (selectedPlayer == null && selected == true) {
@@ -81,6 +87,9 @@ public class MapGenerator : MonoBehaviour {
 
 		charac = ((GameObject)Instantiate(CharactPrefab, new Vector3(Mathf.Floor(SizeMap / 4), 0.6f, Mathf.Floor(SizeMap / 4)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
 		players.Add (charac);
+
+		charac = ((GameObject)Instantiate(CharacterRanged, new Vector3(Mathf.Floor(SizeMap / 2), 0.6f, Mathf.Floor(SizeMap / 2) - 10), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
+		players.Add (charac);
 	}
 
 	void generateEnemies() {
@@ -88,6 +97,11 @@ public class MapGenerator : MonoBehaviour {
 
 		charac = ((GameObject)Instantiate(EnnemiPrefab, new Vector3(4 - Mathf.Floor(SizeMap / 2), 0.6f, -4 + Mathf.Floor(SizeMap / 2)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
 		ennemies.Add (charac);
+	}
+
+	void generateObstacle()
+	{
+		((GameObject)Instantiate(EnvironnementPrefab[0], new Vector3(5 - Mathf.Floor(SizeMap / 2), 0.6f, -10 + Mathf.Floor(SizeMap / 2)), Quaternion.Euler(new Vector3()))).GetComponent<FightEventPlayer>();
 	}
 
 	public void moveCurrentPlayer(Tile destTile) {
